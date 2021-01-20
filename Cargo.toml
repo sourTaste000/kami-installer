@@ -1,0 +1,10 @@
+[package]
+name = "kami-installer"
+version = "0.1.0"
+authors = ["sourTaste000 <47074495+sourTaste000@users.noreply.github.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+fs = "0.0.5"
