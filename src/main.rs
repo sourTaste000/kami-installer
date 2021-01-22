@@ -19,8 +19,7 @@ fn main() {
     match OS {
         "macos" => {
             if Path::new("/Applications/MultiMC.app/Contents/MacOS/instances").exists() {
-                let files = fs::read_dir("/Applications/MultiMC.app/Contents/MacOS/instances").unwrap();
-                for entry in files {
+                for entry in fs::read_dir("/Applications/MultiMC.app/Contents/MacOS/instances").unwrap() {
                     let entry = entry.unwrap();
                     profiles.push(format!("{:?}", entry.path().file_name().ok_or("No profiles found!")));
                 }
@@ -32,8 +31,7 @@ fn main() {
 
         "windows" => {
             if Path::new("C:\\Program Files\\MultiMC\\instances").exists() {
-                let files = fs::read_dir("C:\\Program Files\\MultiMC\\instances").unwrap();
-                for entry in files {
+                for entry in fs::read_dir("C:\\Program Files\\MultiMC\\instances").unwrap() {
                     let entry = entry.unwrap();
                     profiles.push(format!("{:?}", entry.path().file_name().ok_or("No profiles found!")));
                 }
@@ -44,7 +42,7 @@ fn main() {
     }
 
     println!("Found {} profiles.", profiles.len());
-    for i in profiles {
-        println!("{}", i);
+    for versoins in profiles {
+        println!("{}", versions);
     }
 }
