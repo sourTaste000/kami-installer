@@ -18,17 +18,28 @@ fn main() {
 
     match OS {
         "macos" => {
-            if Path::new("/Applications/MultiMC.app").exists() {
+            if Path::new("/Applications/MultiMC.app/Contents/MacOS/instances").exists() {
                 let files = fs::read_dir("/Applications/MultiMC.app/Contents/MacOS/instances").unwrap();
                 for entry in files {
                     let entry = entry.unwrap();
                     profiles.push(format!("{:?}", entry.path().file_name().ok_or("No profiles found!")));
                 }
             }
-            if Path::new("/Applications/Minecraft.app").exists() {
-                //
+            // if Path::new("/Applications/Minecraft.app").exists() {
+            //
+            // }
+        }
+
+        "windows" => {
+            if Path::new("C:\\Program Files\\MultiMC\\instances").exists() {
+                let files = fs::read_dir("C:\\Program Files\\MultiMC\\instances").unwrap();
+                for entry in files {
+                    let entry = entry.unwrap();
+                    profiles.push(format!("{:?}", entry.path().file_name().ok_or("No profiles found!")));
+                }
             }
         }
+
         _ => panic!("Your operating system {:?} is not supported right now.", OS)
     }
 
