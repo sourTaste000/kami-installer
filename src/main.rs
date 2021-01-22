@@ -42,7 +42,7 @@ fn main() {
     }
 
     println!("Found {} profiles.", profiles.len());
-    for versoins in profiles {
+    for versions in profiles {
         println!("{}", versions);
     }
 }
