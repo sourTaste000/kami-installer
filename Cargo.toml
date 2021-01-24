@@ -9,3 +9,4 @@ edition = "2018"
 [dependencies]
 fs = "0.0.5"
 whoami = "1.1.0"
+download_rs = {version="0.2.0",features=["sync_download"]}
